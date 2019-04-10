@@ -1,0 +1,19 @@
+// test script
+
+properties([
+  parameters([
+    string(name: 'delete_view', defaultValue: '', description: 'The view to delete', )
+   ])
+])
+
+node ("GCC_ARM") {
+    stage ("Delete view BLE") {
+		script {
+			if (parameters.delete_view != null && parameters.delete_view != "") {
+			echo "Delete jenkins view ${parameters.delete_view}"
+			
+			def view = Jenkins.instance.getView("BLE")
+			Jenkins.instance.deleteView( view )
+		}
+    }
+}

@@ -4,8 +4,8 @@
 def target_branch = "master"
 def pull_num = 0
 def action = "test"
-def toolchains ['gcc_arm'] 	// armc6 and iar to come
-def targets ['NRF52_DK']	//
+def toolchains = ['gcc_arm'] 	// armc6 and iar to come
+def targets = ['NRF52_DK']	//
 
 node ("GCC_ARM") {
     stage ("Print ENV") {
